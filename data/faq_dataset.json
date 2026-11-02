@@ -1,0 +1,462 @@
+[
+  {
+    "intent_id": "ml_definition",
+    "domain": "Machine Learning",
+    "query_complexity": "simple",
+    "expected_model_tier": "tier_1_low_cost",
+    "expected_answer": "Machine learning is a subfield of artificial intelligence focused on building algorithms that learn patterns from data and improve their performance on tasks without being explicitly programmed.",
+    "queries": [
+      {
+        "id": "q01_canon",
+        "text": "What is machine learning?",
+        "type": "canonical",
+        "is_seed": true
+      },
+      {
+        "id": "q01_exact",
+        "text": "What is machine learning?",
+        "type": "exact_repeat",
+        "is_seed": false
+      },
+      {
+        "id": "q01_p1",
+        "text": "Explain machine learning in simple terms.",
+        "type": "syntactic_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q01_p2",
+        "text": "Can you tell me what ML means?",
+        "type": "lexical_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q01_p3",
+        "text": "What does machine learning actually do?",
+        "type": "colloquial",
+        "is_seed": false
+      },
+      {
+        "id": "q01_adv",
+        "text": "What is a machine in mechanical engineering?",
+        "type": "adversarial_intent_shift",
+        "is_seed": false,
+        "adversarial_intent": "mechanical_engine"
+      }
+    ]
+  },
+  {
+    "intent_id": "supervised_vs_unsupervised",
+    "domain": "Machine Learning",
+    "query_complexity": "moderate",
+    "expected_model_tier": "tier_1_low_cost",
+    "expected_answer": "Supervised learning trains models on labeled input-output pairs to predict targets, whereas unsupervised learning trains on unlabeled data to discover hidden patterns, groupings, or representations.",
+    "queries": [
+      {
+        "id": "q02_canon",
+        "text": "What is the difference between supervised and unsupervised learning?",
+        "type": "canonical",
+        "is_seed": true
+      },
+      {
+        "id": "q02_exact",
+        "text": "What is the difference between supervised and unsupervised learning?",
+        "type": "exact_repeat",
+        "is_seed": false
+      },
+      {
+        "id": "q02_p1",
+        "text": "Supervised learning vs unsupervised learning comparison.",
+        "type": "syntactic_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q02_p2",
+        "text": "How do supervised and unsupervised algorithms differ in AI?",
+        "type": "lexical_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q02_p3",
+        "text": "Compare supervised vs unsupervised machine learning.",
+        "type": "colloquial",
+        "is_seed": false
+      },
+      {
+        "id": "q02_adv",
+        "text": "What is reinforcement learning in robotics?",
+        "type": "adversarial_intent_shift",
+        "is_seed": false,
+        "adversarial_intent": "reinforcement_learning"
+      }
+    ]
+  },
+  {
+    "intent_id": "overfitting_mitigation",
+    "domain": "Machine Learning",
+    "query_complexity": "complex",
+    "expected_model_tier": "tier_2_high_capability",
+    "expected_answer": "Overfitting can be prevented using techniques such as L1/L2 regularization, dropout in neural networks, cross-validation, data augmentation, early stopping, and simplifying model architecture.",
+    "queries": [
+      {
+        "id": "q03_canon",
+        "text": "How can I prevent overfitting in deep neural networks?",
+        "type": "canonical",
+        "is_seed": true
+      },
+      {
+        "id": "q03_exact",
+        "text": "How can I prevent overfitting in deep neural networks?",
+        "type": "exact_repeat",
+        "is_seed": false
+      },
+      {
+        "id": "q03_p1",
+        "text": "What are the best methods to stop a deep network from overfitting?",
+        "type": "syntactic_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q03_p2",
+        "text": "Techniques for mitigating overfitting in neural networks.",
+        "type": "lexical_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q03_p3",
+        "text": "How to avoid overfitting when training deep learning models?",
+        "type": "colloquial",
+        "is_seed": false
+      },
+      {
+        "id": "q03_adv",
+        "text": "What causes underfitting in linear regression?",
+        "type": "adversarial_intent_shift",
+        "is_seed": false,
+        "adversarial_intent": "underfitting"
+      }
+    ]
+  },
+  {
+    "intent_id": "docker_vs_vm",
+    "domain": "Cloud & Infrastructure",
+    "query_complexity": "moderate",
+    "expected_model_tier": "tier_1_low_cost",
+    "expected_answer": "Containers share the host operating system kernel and isolate user spaces, making them lightweight and fast to boot. Virtual machines package a complete guest OS on top of a hypervisor, providing stronger isolation at higher resource overhead.",
+    "queries": [
+      {
+        "id": "q04_canon",
+        "text": "How does a Docker container differ from a virtual machine?",
+        "type": "canonical",
+        "is_seed": true
+      },
+      {
+        "id": "q04_exact",
+        "text": "How does a Docker container differ from a virtual machine?",
+        "type": "exact_repeat",
+        "is_seed": false
+      },
+      {
+        "id": "q04_p1",
+        "text": "Docker vs VM difference explained.",
+        "type": "syntactic_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q04_p2",
+        "text": "What are the main differences between containers and virtual machines?",
+        "type": "lexical_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q04_p3",
+        "text": "Why use Docker instead of a full virtual machine?",
+        "type": "colloquial",
+        "is_seed": false
+      },
+      {
+        "id": "q04_adv",
+        "text": "How do I install Docker Desktop on Windows 11?",
+        "type": "adversarial_intent_shift",
+        "is_seed": false,
+        "adversarial_intent": "docker_install"
+      }
+    ]
+  },
+  {
+    "intent_id": "rest_vs_graphql",
+    "domain": "Software Architecture",
+    "query_complexity": "complex",
+    "expected_model_tier": "tier_2_high_capability",
+    "expected_answer": "REST relies on fixed endpoint structures using standard HTTP verbs, which can lead to over-fetching or under-fetching. GraphQL exposes a single endpoint where clients request exact schemas, reducing round-trips but adding query parsing and caching complexity.",
+    "queries": [
+      {
+        "id": "q05_canon",
+        "text": "When should an enterprise choose GraphQL over REST APIs?",
+        "type": "canonical",
+        "is_seed": true
+      },
+      {
+        "id": "q05_exact",
+        "text": "When should an enterprise choose GraphQL over REST APIs?",
+        "type": "exact_repeat",
+        "is_seed": false
+      },
+      {
+        "id": "q05_p1",
+        "text": "REST vs GraphQL: how to decide which architecture to adopt?",
+        "type": "syntactic_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q05_p2",
+        "text": "In what scenarios is GraphQL better than traditional REST?",
+        "type": "lexical_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q05_p3",
+        "text": "Choosing between GraphQL and REST for microservices.",
+        "type": "colloquial",
+        "is_seed": false
+      },
+      {
+        "id": "q05_adv",
+        "text": "What is the HTTP 204 No Content status code in REST?",
+        "type": "adversarial_intent_shift",
+        "is_seed": false,
+        "adversarial_intent": "http_status_codes"
+      }
+    ]
+  },
+  {
+    "intent_id": "vector_database_definition",
+    "domain": "Data Engineering",
+    "query_complexity": "simple",
+    "expected_model_tier": "tier_1_low_cost",
+    "expected_answer": "A vector database is an indexing and retrieval system designed to store, manage, and perform high-dimensional similarity searches on embedding vectors using algorithms like HNSW or IVF.",
+    "queries": [
+      {
+        "id": "q06_canon",
+        "text": "What is a vector database and how is it used?",
+        "type": "canonical",
+        "is_seed": true
+      },
+      {
+        "id": "q06_exact",
+        "text": "What is a vector database and how is it used?",
+        "type": "exact_repeat",
+        "is_seed": false
+      },
+      {
+        "id": "q06_p1",
+        "text": "Explain vector databases and their applications in AI.",
+        "type": "syntactic_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q06_p2",
+        "text": "What does a vector DB do?",
+        "type": "lexical_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q06_p3",
+        "text": "Can you define what vector databases are used for?",
+        "type": "colloquial",
+        "is_seed": false
+      },
+      {
+        "id": "q06_adv",
+        "text": "What is a relational database primary key?",
+        "type": "adversarial_intent_shift",
+        "is_seed": false,
+        "adversarial_intent": "relational_db_keys"
+      }
+    ]
+  },
+  {
+    "intent_id": "distributed_cache_design",
+    "domain": "Systems Design",
+    "query_complexity": "complex",
+    "expected_model_tier": "tier_2_high_capability",
+    "expected_answer": "Designing a distributed cache involves consistent hashing for partition distribution, eviction policies (LRU/LFU), replication strategies, cache-aside or write-through patterns, and handling cache stampedes with probabilistic early expiration or distributed locks.",
+    "queries": [
+      {
+        "id": "q07_canon",
+        "text": "How do you design a fault-tolerant distributed cache with consistent hashing?",
+        "type": "canonical",
+        "is_seed": true
+      },
+      {
+        "id": "q07_exact",
+        "text": "How do you design a fault-tolerant distributed cache with consistent hashing?",
+        "type": "exact_repeat",
+        "is_seed": false
+      },
+      {
+        "id": "q07_p1",
+        "text": "System design of a high-throughput distributed caching cluster.",
+        "type": "syntactic_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q07_p2",
+        "text": "Architecting a scalable distributed cache with consistent hashing and replication.",
+        "type": "lexical_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q07_p3",
+        "text": "How to build a distributed caching system like Redis or Memcached?",
+        "type": "colloquial",
+        "is_seed": false
+      },
+      {
+        "id": "q07_adv",
+        "text": "How do I clear browser cache in Google Chrome?",
+        "type": "adversarial_intent_shift",
+        "is_seed": false,
+        "adversarial_intent": "browser_cache"
+      }
+    ]
+  },
+  {
+    "intent_id": "python_gil",
+    "domain": "Programming",
+    "query_complexity": "simple",
+    "expected_model_tier": "tier_1_low_cost",
+    "expected_answer": "The Global Interpreter Lock (GIL) is a mutex in CPython that allows only one native thread to execute Python bytecode at a time, protecting memory management from race conditions at the expense of CPU-bound multi-core concurrency.",
+    "queries": [
+      {
+        "id": "q08_canon",
+        "text": "What is the Python Global Interpreter Lock (GIL)?",
+        "type": "canonical",
+        "is_seed": true
+      },
+      {
+        "id": "q08_exact",
+        "text": "What is the Python Global Interpreter Lock (GIL)?",
+        "type": "exact_repeat",
+        "is_seed": false
+      },
+      {
+        "id": "q08_p1",
+        "text": "Explain Python GIL and why it exists.",
+        "type": "syntactic_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q08_p2",
+        "text": "What does GIL mean in Python multithreading?",
+        "type": "lexical_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q08_p3",
+        "text": "How does the Python GIL restrict thread execution?",
+        "type": "colloquial",
+        "is_seed": false
+      },
+      {
+        "id": "q08_adv",
+        "text": "What is a GIL file format in graphics?",
+        "type": "adversarial_intent_shift",
+        "is_seed": false,
+        "adversarial_intent": "graphics_gil"
+      }
+    ]
+  },
+  {
+    "intent_id": "rag_architecture",
+    "domain": "Generative AI",
+    "query_complexity": "complex",
+    "expected_model_tier": "tier_2_high_capability",
+    "expected_answer": "Retrieval-Augmented Generation (RAG) enhances LLMs by retrieving relevant contextual chunks from an external knowledge base via dense or hybrid search and injecting them into the prompt before generation, reducing hallucinations and enabling up-to-date domain answers.",
+    "queries": [
+      {
+        "id": "q09_canon",
+        "text": "How does Retrieval-Augmented Generation (RAG) work in enterprise LLM systems?",
+        "type": "canonical",
+        "is_seed": true
+      },
+      {
+        "id": "q09_exact",
+        "text": "How does Retrieval-Augmented Generation (RAG) work in enterprise LLM systems?",
+        "type": "exact_repeat",
+        "is_seed": false
+      },
+      {
+        "id": "q09_p1",
+        "text": "Explain the step-by-step workflow of a RAG pipeline.",
+        "type": "syntactic_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q09_p2",
+        "text": "What is RAG architecture and how does it prevent LLM hallucinations?",
+        "type": "lexical_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q09_p3",
+        "text": "How do you build a retrieval augmented generation system?",
+        "type": "colloquial",
+        "is_seed": false
+      },
+      {
+        "id": "q09_adv",
+        "text": "What does rag mean in textile manufacturing?",
+        "type": "adversarial_intent_shift",
+        "is_seed": false,
+        "adversarial_intent": "textile_rag"
+      }
+    ]
+  },
+  {
+    "intent_id": "acid_vs_base",
+    "domain": "Data Engineering",
+    "query_complexity": "moderate",
+    "expected_model_tier": "tier_1_low_cost",
+    "expected_answer": "ACID guarantees strict Atomicity, Consistency, Isolation, and Durability common in transactional RDBMS. BASE focuses on Basically Available, Soft state, and Eventual consistency common in distributed NoSQL databases to prioritize availability and partition tolerance.",
+    "queries": [
+      {
+        "id": "q10_canon",
+        "text": "What are the key differences between ACID and BASE database properties?",
+        "type": "canonical",
+        "is_seed": true
+      },
+      {
+        "id": "q10_exact",
+        "text": "What are the key differences between ACID and BASE database properties?",
+        "type": "exact_repeat",
+        "is_seed": false
+      },
+      {
+        "id": "q10_p1",
+        "text": "Compare ACID vs BASE transaction guarantees in databases.",
+        "type": "syntactic_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q10_p2",
+        "text": "How does ACID consistency contrast with BASE eventual consistency?",
+        "type": "lexical_paraphrase",
+        "is_seed": false
+      },
+      {
+        "id": "q10_p3",
+        "text": "ACID vs BASE in SQL and NoSQL databases.",
+        "type": "colloquial",
+        "is_seed": false
+      },
+      {
+        "id": "q10_adv",
+        "text": "What is the pH scale of acid and base solutions in chemistry?",
+        "type": "adversarial_intent_shift",
+        "is_seed": false,
+        "adversarial_intent": "chemistry_ph"
+      }
+    ]
+  }
+]

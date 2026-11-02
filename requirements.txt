@@ -1,0 +1,12 @@
+numpy>=1.26.0
+pandas>=2.2.0
+sentence-transformers>=2.2.0
+torch>=2.0.0
+scikit-learn>=1.4.0
+fastapi>=0.110.0
+uvicorn>=0.28.0
+pydantic>=2.6.0
+streamlit>=1.35.0
+plotly>=5.20.0
+pytest>=8.0.0
+requests>=2.31.0
