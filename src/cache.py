@@ -8,6 +8,7 @@ Thread-safe with TTL expiration, inspection, and invalidation.
 Complies with FR-03, FR-04, FR-05, and FR-10.
 """
 
+import re
 import time
 import uuid
 import threading
@@ -117,6 +118,38 @@ class SemanticCache:
                 del self._entries[query_id]
                 return True
             return False
+
+    @staticmethod
+    def extract_entity_tokens(text: str) -> set:
+        """
+        Extract numerical, ID, and entity tokens (e.g., #1024, order IDs, version numbers, quantities).
+        Guards against false cache reuse on near-duplicate queries differing only by entity values.
+        """
+        tokens = set()
+        # Numerical IDs with hashtags: #1234, #abc12
+        for match in re.findall(r"#\w+", text):
+            tokens.add(match.lower())
+        # Standalone numbers, versions, or codes: 1024, 3.1, 404
+        for match in re.findall(r"\b\d+(?:\.\d+)?\b", text):
+            tokens.add(match)
+        return tokens
+
+    @classmethod
+    def check_entity_guardrail(cls, query_a: str, query_b: str) -> bool:
+        """
+        Validate whether two queries share compatible entity/numerical slots.
+        Returns True if entities match or if neither query contains entity tokens.
+        Returns False if queries have conflicting numbers or entity IDs.
+        """
+        entities_a = cls.extract_entity_tokens(query_a)
+        entities_b = cls.extract_entity_tokens(query_b)
+
+        # If neither has specific numerical/ID entities, allow semantic matching
+        if not entities_a and not entities_b:
+            return True
+
+        # If both have entities, they must match
+        return entities_a == entities_b
 
     def cleanup_expired(self) -> int:
         """Remove any entries past expiration timestamp."""
@@ -249,6 +282,18 @@ class SemanticCache:
             elapsed_ms = (time.time() - t0) * 1000.0
 
             if best_entry and best_sim >= active_threshold:
+                # Entity & Numerical Guardrail Check
+                if not self.check_entity_guardrail(query, best_entry.original_query):
+                    self.total_misses += 1
+                    return CacheLookupResult(
+                        is_hit=False,
+                        matched_entry=best_entry,
+                        similarity_score=round(best_sim, 4),
+                        strategy_used="semantic",
+                        lookup_latency_ms=elapsed_ms,
+                        reason=f"Similarity {best_sim:.4f} >= threshold {active_threshold:.2f}, but rejected by Entity/Numerical Guardrail (mismatched entity slots/identifiers)."
+                    )
+
                 best_entry.hit_count += 1
                 best_entry.last_accessed_at = now
                 self.total_hits += 1

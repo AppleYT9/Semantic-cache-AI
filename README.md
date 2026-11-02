@@ -5,7 +5,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.35%2B-FF4B4B.svg)](https://streamlit.io/)
 [![Groq Cloud](https://img.shields.io/badge/Groq%20Cloud-Accelerated%20Inference-f55036.svg)](https://groq.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Tests: 18 Passed](https://img.shields.io/badge/Tests-18%20Passed-brightgreen.svg)](https://github.com/AppleYT9/Semantic-cache-AI)
+[![Tests: 19 Passed](https://img.shields.io/badge/Tests-19%20Passed-brightgreen.svg)](https://github.com/AppleYT9/Semantic-cache-AI)
 
 **SemanticCache AI** is an enterprise-grade semantic caching and dynamic cost-aware model routing engine for Large Language Models (LLMs). It dramatically reduces operational inference costs and response latency while maintaining strict factual response quality.
 
@@ -126,6 +126,7 @@ The engine is engineered around modular, loosely coupled components:
 2. **Semantic Cache Store (`src/cache.py`)**:
    - Thread-safe in-memory vector store protected with `threading.RLock`.
    - Built-in Time-To-Live (TTL) expiration, dynamic entry invalidation, and LRU eviction.
+   - **Entity & Numerical Slot Guardrail**: Automatically extracts numerical tokens, order IDs, and version codes (e.g. `#1024` vs `#5921`) to reject false cache hits when near-duplicate queries differ only by entity values.
    - Detailed lookup metadata (similarity score, latency breakdown, match rationale).
 
 3. **Cost-Aware Model Router (`src/router.py`)**:

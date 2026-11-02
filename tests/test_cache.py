@@ -120,3 +120,29 @@ def test_cache_invalidation_and_clear(mock_cache):
     cleared = mock_cache.clear()
     assert cleared == 1
     assert len(mock_cache.list_entries()) == 0
+
+
+def test_entity_numerical_guardrail(mock_cache):
+    # Store query with specific order ID
+    mock_cache.put(
+        query="What is the delivery status for order #1024?",
+        response="Order #1024 is currently in transit.",
+        response_model="tier_1_low_cost"
+    )
+
+    # Identical query with same entity hits cache
+    res_same = mock_cache.lookup(
+        "What is the delivery status for order #1024?",
+        strategy="semantic",
+        threshold=0.80
+    )
+    assert res_same.is_hit is True
+
+    # Near-duplicate query with DIFFERENT order ID must be rejected by entity guardrail
+    res_diff = mock_cache.lookup(
+        "What is the delivery status for order #5921?",
+        strategy="semantic",
+        threshold=0.80
+    )
+    assert res_diff.is_hit is False
+    assert "Entity/Numerical Guardrail" in res_diff.reason
